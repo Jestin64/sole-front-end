@@ -35,7 +35,11 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static" color="transparent" style={{ color: "#000" }}>
+    <AppBar
+      position="static"
+      color="transparent"
+      style={{ color: "#000", boxShadow: "1px 2px 20px #B89602" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -112,12 +116,16 @@ function NavBar() {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+            style={{ justifyContent: "flex-end" }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                // onClick={handleCloseNavMenu}
+                href={`/${page}`}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
