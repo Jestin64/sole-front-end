@@ -21,7 +21,7 @@ function AccordionTable({ data }) {
   return (
     <Accordion
       expanded={expanded === `${title}`}
-      onChange={handleChange(title)}
+      onChange={handleChange(`${title}`)}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
