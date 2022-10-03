@@ -7,6 +7,7 @@ import Accreditation from "./Pages/Accreditation";
 import Submissions from "./Pages/Submissions";
 import Services from "./Pages/Services";
 import Registration from "./Pages/Registration";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <NavBar />
       <Router>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/accreditation" element={<Accreditation />} />
