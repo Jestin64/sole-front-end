@@ -25,6 +25,16 @@ function Login() {
         >
           Login
         </Button>
+        <Button
+          variant="outlined"
+          style={{
+            borderColor: "#000",
+            backgroundColor: "#D9C677",
+            color: "#000",
+          }}
+        >
+          Register
+        </Button>
       </Box>
     </div>
   );

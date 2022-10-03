@@ -19,12 +19,20 @@ import {
 function ReqBlock({ index, subcat, dList, dates }) {
   const [type, setType] = React.useState([]);
   const [duration, setDuration] = React.useState([]);
+  const [values, setValues] = React.useState([]);
 
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
   const handleDurChange = (event) => {
     setDuration(event.target.value);
+  };
+
+  const handleValChange = (event) => {
+    let temp = values;
+    let key = event.target.name;
+    temp[key] = event.target.value;
+    setValues(temp);
   };
 
   return (
@@ -68,15 +76,16 @@ function ReqBlock({ index, subcat, dList, dates }) {
             ))}
           </Select>
         </FormControl>
-        {dates.map((sel) => (
+        {dates.map((sel, index) => (
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">{sel.title}</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={sel?.val[duration]}
+              value={values ? values[index] : ""}
               label={sel?.val[duration]}
-              onChange={handleDurChange}
+              name={index}
+              onChange={handleValChange}
             >
               {sel?.val[duration]?.map((li) => (
                 <MenuItem value={li}>{li}</MenuItem>
