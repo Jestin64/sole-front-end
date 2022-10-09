@@ -14,12 +14,29 @@ import {
   Select,
   MenuItem,
   Button,
+  ListSubheader,
 } from "@mui/material";
+
+
+
 
 function ReqBlock({ index, subcat, dList, dates }) {
   const [type, setType] = React.useState([]);
   const [duration, setDuration] = React.useState([]);
   const [values, setValues] = React.useState([]);
+
+  const renderSelectGroup = product => {
+    const items = product.val[duration]?.map(p => {
+      return (
+        <MenuItem key={p} value={p}>
+          {p}
+        </MenuItem>
+      );
+    });
+    return [<ListSubheader>{product.title}</ListSubheader>, items];
+  };
+  
+  
 
   const handleTypeChange = (event) => {
     setType(event.target.value);
@@ -29,10 +46,8 @@ function ReqBlock({ index, subcat, dList, dates }) {
   };
 
   const handleValChange = (event) => {
-    let temp = values;
-    let key = event.target.name;
-    temp[key] = event.target.value;
-    setValues(temp);
+    console.log("clicked");
+    setValues(event.target.value);
   };
 
   return (
@@ -76,23 +91,23 @@ function ReqBlock({ index, subcat, dList, dates }) {
             ))}
           </Select>
         </FormControl>
-        {dates.map((sel, index) => (
+        
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">{sel.title}</InputLabel>
+            <InputLabel id="demo-simple-select-label">Dates</InputLabel>
             <Select
+            
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={values ? values[index] : ""}
-              label={sel?.val[duration]}
-              name={index}
+              value={values}
+              label="Dates"
               onChange={handleValChange}
+              
             >
-              {sel?.val[duration]?.map((li) => (
-                <MenuItem value={li}>{li}</MenuItem>
-              ))}
+              {dates.map((sel) =>  renderSelectGroup(sel)
+                )}
+              
             </Select>
           </FormControl>
-        ))}
       </Box>
     </Box>
   );

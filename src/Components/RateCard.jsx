@@ -27,9 +27,9 @@ function RateCard({ data }) {
   };
 
   return (
-    <Accordion>
+    <Accordion style={{width:"70%"}}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMoreIcon style={{color:"#000"}} />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
@@ -44,7 +44,7 @@ function RateCard({ data }) {
             right: 15,
           }}
         >
-          <Button variant="outlined" onClick={handleAdd}>
+          <Button variant="outlined" style={{borderRadius:0, color:"#000", borderColor:"#000"}} onClick={handleAdd}>
             Add more
           </Button>
         </Box>

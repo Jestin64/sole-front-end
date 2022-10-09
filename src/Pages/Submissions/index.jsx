@@ -42,13 +42,11 @@ function Submissions() {
     setValue(newValue);
   };
   return (
-    <div style={{ margin: "5rem" }}>
+    <div style={{ padding: "2rem 8rem"}}>
       <div
         className="intro"
         style={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
         }}
       >
         <div className="left" style={{ width: "60%" }}>
@@ -60,13 +58,9 @@ function Submissions() {
             Ut enim ad minim veniam.
           </Typography>
         </div>
-        <div className="right">
-          <Button variant="contained" sx={{ bgcolor: "#000", color: "#fff" }}>
-            Submit
-          </Button>
-        </div>
+        
       </div>
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "65%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={value}
@@ -81,7 +75,7 @@ Refer Sections 6.b and 7 in the Vendor Pack for more details.
               placement="right"
             >
               <Tab
-                icon={<InfoIcon style={{ color: "DECF8A" }} />}
+                icon={<InfoIcon style={{ color:"#000" }} />}
                 iconPosition="end"
                 label="Design Concept"
                 {...a11yProps(0)}
@@ -95,7 +89,7 @@ Refer Sections 6.c and 7 in the Vendor Pack for more details.
               placement="right"
             >
               <Tab
-                icon={<InfoIcon style={{ color: "DECF8A" }} />}
+                icon={<InfoIcon style={{ color:"#000" }} />}
                 iconPosition="end"
                 label="Technical Submission"
                 {...a11yProps(1)}
@@ -109,7 +103,7 @@ Refer Sections 2.f and 6.a in the Vendor Pack for more details.
               placement="right"
             >
               <Tab
-                icon={<InfoIcon style={{ color: "DECF8A" }} />}
+                icon={<InfoIcon style={{ color:"#000" }} />}
                 iconPosition="end"
                 label="Activation & Programming"
                 {...a11yProps(2)}
@@ -198,6 +192,10 @@ Refer Sections 2.f and 6.a in the Vendor Pack for more details.
             />
             <FormControlLabel
               control={<Checkbox />}
+              label="3rd party liability insurance"
+            />
+            <FormControlLabel
+              control={<Checkbox />}
               label="Sustainability plan"
             />
           </FormGroup>
@@ -230,6 +228,10 @@ Refer Sections 2.f and 6.a in the Vendor Pack for more details.
             />
           </FormGroup>
         </TabPanel>
+       
+          <Button variant="contained" style={{borderRadius:0 , color:"#fff", backgroundColor:"#000"}} sx={{  mt:3}} >
+            Submit
+          </Button>
       </Box>
     </div>
   );

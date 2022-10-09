@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Logo from "../logo.png";
 
-const pages = ["home", "accreditation", "submissions", "services"];
+const pages = ["home",  "submissions", "services", "accreditation" ];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,7 +37,7 @@ function NavBar() {
     <AppBar
       position="static"
       color="transparent"
-      style={{ color: "#000", boxShadow: "1px 2px 20px #B89602" }}
+      style={{ color: "#000", boxShadow: "1px 0.5px 0px #30302f" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>

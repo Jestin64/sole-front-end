@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton , Button} from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import DownloadIcon from "@mui/icons-material/Download";
 
 function Accreditation() {
   return (
     <Box>
-      <Box style={{ margin: "5rem 12rem" }}>
+      <Box style={{ padding: "2rem 8rem"  }}>
         <Box>
-          <Typography variant="h5">Lorem Ipsum</Typography>
+          <Typography variant="h6">Lorem Ipsum</Typography>
           <Typography variant="body1">
             All on-site personnel must be credentialed. Please use the templates
             below to provide names, ID copies, and job titles for credentials to
@@ -16,21 +16,22 @@ function Accreditation() {
           </Typography>
         </Box>
         <Box
-          sx={{ mt: 10 }}
-          style={{ display: "flex", flexDirection: "row", gap: 30 }}
+          sx={{ mt: 6 }}
+          style={{ display: "flex", flexDirection: "column", gap: 60 }}
         >
           <Box
-            className="teardown"
+            className="event days"
             style={{
               width: "50%",
               border: "1px dashed #000",
               margin: 3,
               padding: 14,
+              display:"flex",
+              gap:15,
+              flexDirection: "column",
             }}
           >
-            <Typography variant="body1">
-              Build & Teardown Accreditation
-            </Typography>
+            <Typography variant="body1">Build & Teardown Accreditation</Typography>
             <Box
               style={{
                 display: "flex",
@@ -38,14 +39,15 @@ function Accreditation() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="body2">Download Template</Typography>
-              <IconButton
-                color="primary"
-                aria-label="upload picture"
+               <Button
+                style={{color:"#000", borderColor:"#000" , borderRadius:0}}
+                variant="outlined"
+                aria-label="Download Template"
                 component="label"
               >
+                <Typography variant="body2">Download Template</Typography>
                 <DownloadIcon />
-              </IconButton>
+              </Button>
             </Box>
             <Box
               style={{
@@ -54,15 +56,17 @@ function Accreditation() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="body2">Upload File</Typography>
-              <IconButton
-                color="primary"
-                aria-label="upload picture"
+              
+              <Button
+                style={{color:"#000", borderColor:"#000", borderRadius:0}}
+                variant="outlined"
+                aria-label="upload file"
                 component="label"
               >
+                <Typography variant="body2">Upload File</Typography>
                 <input hidden accept="image/*" type="file" />
                 <FileUploadIcon />
-              </IconButton>
+              </Button>
             </Box>
           </Box>
           <Box
@@ -72,6 +76,9 @@ function Accreditation() {
               border: "1px dashed #000",
               margin: 3,
               padding: 14,
+              display:"flex",
+              gap:15,
+              flexDirection: "column",
             }}
           >
             <Typography variant="body1">Event Days Accreditation</Typography>
@@ -82,14 +89,15 @@ function Accreditation() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="body2">Download Template</Typography>
-              <IconButton
-                color="primary"
-                aria-label="upload picture"
+               <Button
+                style={{color:"#000", borderColor:"#000", borderRadius:0}}
+                variant="outlined"
+                aria-label="Download Template"
                 component="label"
               >
+                <Typography variant="body2">Download Template</Typography>
                 <DownloadIcon />
-              </IconButton>
+              </Button>
             </Box>
             <Box
               style={{
@@ -98,15 +106,17 @@ function Accreditation() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="body2">Upload File</Typography>
-              <IconButton
-                color="primary"
-                aria-label="upload picture"
+              
+              <Button
+                style={{color:"#000", borderColor:"#000", borderRadius:0}}
+                variant="outlined"
+                aria-label="upload file"
                 component="label"
               >
+                <Typography variant="body2">Upload File</Typography>
                 <input hidden accept="image/*" type="file" />
                 <FileUploadIcon />
-              </IconButton>
+              </Button>
             </Box>
           </Box>
         </Box>

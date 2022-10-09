@@ -6,58 +6,58 @@ import DownloadIcon from "@mui/icons-material/Download";
 function Home() {
   const table = [
     {
-      title: "Sole DXB 2022",
+      title: "Festival Operating Hours",
       rows: [
-        ["8 December", "Preview (By invitation only)"],
-        ["9 December", "Film screening"],
-        ["10 December", "Day 1 | Public access"],
+        ["December 8", "Preview | By invitation only"],
+        ["December 9", "Doors open to public | Day 1"],
+        ["December 10", "Doors open to public | Day 2"],
+        ["December 11", "Doors open to public | Day 3"],
       ],
     },
     {
-      title: "Vendor Submission Deadlines",
+      title: "Submission Deadlines",
       rows: [
-        ["17 October", "Activation & programming"],
-        ["17 October", "Design concept"],
-        ["17 October", "Technical submission"],
-        ["17 October", "DTCM documentation (Entertainers)"],
-        ["24 October", "Permits & licencing application"],
-        ["01 November", "Site access & staff accreditation"],
-        ["04 November", "Site services & operations"],
-        ["24 November", "F&B vendor licences & permits"],
+        ["Overdue", "Activation & programming"],
+        ["Overdue", "Design concept"],
+        ["October 17", "Technical submission"],
+        ["October 17", "DTCM documentation (Entertainers)"],
+        ["October 24", "Permits & licencing application"],
+        ["November 5", "Site services & additionals"],
+        ["November 14", "Site access & staff accreditation"],
       ],
     },
     {
-      title: "Milestones",
+      title: "Build Milestones",
       rows: [
-        ["06 December", "Installation complete ( no later than 0700 hours)"],
-        ["07 December", "Civil Defense (DCD) inspection"],
-        ["08 October", "Final SOLE inspection"],
+        ["December 6", "Installation complete ( no later than 0700 hours)"],
+        ["December 7", "Civil Defense (DCD) inspection"],
+        ["October 8", "Final SOLE inspection"],
       ],
     },
     {
       title: "Load in/Build",
       rows: [
-        ["29 November", "Installation complete ( no later than 0700 hours)"],
-        ["02 December", "Sponsor & Large Custom (G)"],
-        ["03 December", "Medium"],
-        ["04 December", "Small"],
-        ["09 December", "F&B, Marketplace & Sneaker Swap"],
+        ["November 29", "Anchor, Sponsor & Large Custom (G+1)"],
+        ["December 2", "Sponsor & Large Custom (G)"],
+        ["December 3", "Medium"],
+        ["December 4", "Small"],
+        ["December 9", "F&B, Marketplace & Sneaker Swap"],
       ],
     },
     {
       title: "Load out/Teardown",
       rows: [
-        ["12 December", "Product packing and debris clearance only."],
+        ["December 12", "Product packing and debris clearance only."],
         [
-          "12 December",
+          "December 12",
           "Removal of product, loose furniture, simple fittings and fixtures. Clearance of storage, dressing rooms, and support offices.",
         ],
         [
-          "13 December",
+          "December 13",
           "Removal of hard furniture, kitchen equipment, impediments, cladding, wiring, Tech, A/V, storage units, dressing rooms, and office units.",
         ],
         [
-          "14 December",
+          "December 14",
           "Removal of trussing, shading, rails, electrical, major structural components, and clearance of waste.",
         ],
       ],
@@ -65,10 +65,10 @@ function Home() {
   ];
 
   return (
-    <Box style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+    <Box style={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <Box style={{ width: "60%", padding: "2rem 8rem" }}>
         <Typography variant="h6">Sole DXB is back!</Typography>
-        <Typography variant="body1" style={{ color: "#B89602" }}>
+        <Typography variant="body1">
           Welcome to the 2022 festival, we’re glad to have you on board.{" "}
         </Typography>
         <Typography variant="body1">
@@ -81,27 +81,26 @@ function Home() {
             <AccordionTable data={tabledata} />
           ))}
         </Box>
-      </Box>
-      <Box
+        <Box
         style={{
-          width: "40%",
+          width: "100%",
           margin: "5rem 0",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
 
           gap: 20,
         }}
       >
         <Button
           variant="contained"
-          style={{ color: "#D9C677", backgroundColor: "#000" }}
+          style={{ color: "#FFF", backgroundColor: "#000" }}
           endIcon={<DownloadIcon />}
         >
           Vendor pack
         </Button>
         <Button
           variant="contained"
-          style={{ color: "#D9C677", backgroundColor: "#000" }}
+          style={{ color: "#FFF", backgroundColor: "#000" }}
           endIcon={<DownloadIcon />}
         >
           sustainability guide
@@ -109,7 +108,7 @@ function Home() {
         <Button
           variant="contained"
           style={{
-            color: "#D9C677",
+            color: "#FFF",
             backgroundColor: "#000",
           }}
           endIcon={<DownloadIcon />}
@@ -117,6 +116,8 @@ function Home() {
           layout
         </Button>
       </Box>
+      </Box>
+     
     </Box>
   );
 }

@@ -24,7 +24,7 @@ function AccordionTable({ data }) {
       onChange={handleChange(`${title}`)}
     >
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMoreIcon style={{color:"#000"}} />}
         aria-controls="panel1bh-content"
         id="panel1bh-header"
       >
@@ -40,7 +40,7 @@ function AccordionTable({ data }) {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   {row.map((cell) => (
-                    <TableCell align="left">{cell}</TableCell>
+                    <TableCell width="50%" align="left">{cell}</TableCell>
                   ))}
                 </TableRow>
               ))}

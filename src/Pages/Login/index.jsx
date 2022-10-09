@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, Box, Button } from "@mui/material";
+import { TextField, Box, Button, Typography } from "@mui/material";
+import {Link} from "react-router-dom";
 
 function Login() {
   return (
@@ -10,31 +11,46 @@ function Login() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          margin: "5rem auto",
+          padding: "10rem 20rem 0 20rem",
           gap: 40,
         }}
-      >
-        <TextField id="outlined-basic" label="Username" variant="outlined" />
-        <TextField id="outlined-basic" label="Password" variant="outlined" />
+      > <Box  style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 60,
+      }}>
+        <TextField id="outlined-basic"  label="Username" variant="standard" />
+        <TextField id="outlined-basic" label="Password" variant="standard" />
+        </Box>
         <Button
           variant="outlined"
           style={{
-            borderColor: "#D9C677",
-            color: "#D9C677",
+            borderColor: "#000",
+            backgroundColor:"#bdbdbd",
+            borderRadius:0,
+            color: "#000",
+            width:"300px",
           }}
         >
           Login
         </Button>
         <Button
+        href="/registration"
           variant="outlined"
           style={{
             borderColor: "#000",
-            backgroundColor: "#D9C677",
-            color: "#000",
+            borderRadius:0,
+            backgroundColor: "#30302f",
+            color: "#fff",
+            width:"300px",
           }}
         >
           Register
         </Button>
+        <Link to="#"><Typography variant="body2">forgot password</Typography></Link>
+        
       </Box>
     </div>
   );

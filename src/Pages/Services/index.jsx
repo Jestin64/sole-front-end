@@ -14,6 +14,22 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import RateCard from "../../Components/RateCard";
 
+import { DataGrid } from '@mui/x-data-grid';
+
+const columns = [
+  { field: 'Title', headerName: 'Title', width:550 },
+  { field: 'Price', headerName: 'Price', width: 80 },
+  
+];
+
+const rows = [
+  { id: 1, Title: 'Entertainment permit Per submission', Price: 2500},
+  { id: 2, Title: 'Rush fee Late applicant', Price: 4500},
+  { id: 3, Title: 'Photography/videography | 1-day permit Per submission', Price: 500},
+  { id: 4, Title: 'Photography/videography | 3-day permit Per submission', Price: 800},
+  { id: 5, Title: 'Technical submission Late applicant', Price: 6800},
+];
+
 const services = [
   {
     title: "Crane",
@@ -176,7 +192,7 @@ function Services() {
     setDroneChecked(event.target.checked);
   };
   return (
-    <Box sx={{ m: 10, mt: 5 }} style={{ position: "relative" }}>
+    <Box  style={{ position: "relative" , padding: "2rem 8rem" }}>
       <div
         className="intro"
         style={{
@@ -198,44 +214,34 @@ function Services() {
         </Typography>
       </div>
       <Typography
-        style={{ position: "absolute", top: 10, right: 0, fontWeight: "bold" }}
+        style={{ position: "fixed", top: 130, right: 50, fontWeight: "bold"}}
         variant="body1"
       >
         Total Cost : 0
       </Typography>
-      <Accordion>
+      <Accordion style={{width:"70%"}}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon style={{color:"#000"}} />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
           <Typography>Permits</Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox />}
-              label="3D visual in colour (Google SketchUp compatible"
-            />
-            <FormControlLabel
-              control={<Checkbox />}
-              label="Plan - dimensional layout of major unit components"
-            />
-            <FormControlLabel
-              control={<Checkbox />}
-              label="Elevations – dimensional layout of all unit elements"
-            />
-            <FormControlLabel
-              control={<Checkbox />}
-              label="Material sample board (On SOLE’s request)"
-            />
-          </FormGroup>
+        <AccordionDetails style={{ height: 400, width: '90%' }}>
+        
+        <DataGrid
+        style={{border:"none"}}
+        rows={rows}
+        columns={columns}
+        checkboxSelection
+      />
         </AccordionDetails>
       </Accordion>
       <FormControlLabel
         sx={{ mt: 2 }}
-        control={<Switch checked={droneChecked} onChange={handleDroneSwitch} />}
-        label="Drone Footage"
+        labelPlacement="start"
+        control={<Switch checked={droneChecked} style={{color:"#000"}} onChange={handleDroneSwitch} />}
+        label="Drone Footage (Request Quote)"
       />
       {droneChecked && (
         <Box style={{ width: "60%" }} sx={{ mt: 1, mb: 2 }}>
