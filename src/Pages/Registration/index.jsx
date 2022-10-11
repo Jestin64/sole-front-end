@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import { Box, TextField, Typography, Button } from "@mui/material";
+import { Box, TextField, Typography, Button , FormControl } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import {storage} from "../../firebaseapp.js"
 import { ref, getDownloadURL, uploadBytesResumable  } from "firebase/storage";
@@ -43,9 +43,12 @@ function Registration() {
     ).then(()=>{
       setUserDetails({...userDetails , files : UploadedURL}); 
     });
-      axios.post("http://localhost:8080/user", userDetails).then(()=>{
-        navigate("/home")
-      })
+      axios.post("http://localhost:8080/user", userDetails).then((res)=>{
+        console.log(res);
+        if(res.status === 200){
+          navigate("/home")
+        }
+      }).catch(error=>console.log(error.message));
   }
 
   return (
@@ -59,6 +62,7 @@ function Registration() {
       }}
       sx={{ m: 6 }}
     >
+      <FormControl>
       <Box
         style={{
           display: "flex",
@@ -73,24 +77,24 @@ function Registration() {
           flexDirection: "row",
           gap: 8,
           width:"100%",
-        }}><TextField id="outlined-basic" fullWidth label="First Name" name="firstname" value={userDetails?.firstname} onChange={handleUserUpdate} variant="standard"  />
-        <TextField id="outlined-basic" fullWidth label="Last Name" name="lastname" value={userDetails?.lastname} onChange={handleUserUpdate} variant="standard"  /></Box>
+        }}><TextField id="outlined-basic1" fullWidth label="First Name" name="firstname" value={userDetails?.firstname} onChange={handleUserUpdate} variant="standard"  />
+        <TextField id="outlined-basic2" fullWidth label="Last Name" name="lastname" value={userDetails?.lastname} onChange={handleUserUpdate} variant="standard"  /></Box>
         <Box  style={{
           display: "flex",
           flexDirection: "row",
           gap: 8,
           width:"100%",
-        }}><TextField id="outlined-basic" fullWidth label="Email" name="email" value={userDetails?.email} onChange={handleUserUpdate} variant="standard"  />
-        <TextField id="outlined-basic" fullWidth label="Mobile" name="mobile" value={userDetails?.mobile} onChange={handleUserUpdate} variant="standard"  /></Box>
+        }}><TextField id="outlined-basic3" fullWidth label="Email" name="email" value={userDetails?.email} onChange={handleUserUpdate} variant="standard"  />
+        <TextField id="outlined-basic4" fullWidth label="Mobile" name="mobile" value={userDetails?.mobile} onChange={handleUserUpdate} variant="standard"  /></Box>
         
         <TextField
-          id="outlined-basic"
+          id="outlined-basic5"
           label="Company/Brand"
           variant="standard" 
           name="company" value={userDetails?.company} onChange={handleUserUpdate}
         />
-        <TextField id="outlined-basic" label="Industry" name="industry" value={userDetails?.industry} onChange={handleUserUpdate} variant="standard"  />
-        <TextField id="outlined-basic" label="Set Password" name="password" value={userDetails?.password} onChange={handleUserUpdate} variant="standard"  />
+        <TextField id="outlined-basic6" label="Industry" name="industry" value={userDetails?.industry} onChange={handleUserUpdate} variant="standard"  />
+        <TextField id="outlined-basic7" label="Set Password" name="password" type="text" value={userDetails?.password} onChange={handleUserUpdate} variant="standard"  />
       </Box>
       <Box
         style={{
@@ -150,6 +154,7 @@ function Registration() {
         </Button>
       <img src={UploadedURL} alt="Upload" />
       </Box>
+      </FormControl>
     </Box>
   );
 }

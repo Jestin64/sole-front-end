@@ -1,8 +1,20 @@
-import React from "react";
+import React , {useState} from "react";
 import { TextField, Box, Button, Typography } from "@mui/material";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () =>{
+    const data = {email : email , password : password};
+    axios.post("http://localhost:8080/user/login", data).then((res)=>{
+        localStorage.setItem('profile', JSON.stringify({...res?.data}))
+      }).catch(error=>console.log(error));
+  }
+
+
   return (
     <div style={{ width: "100%" }}>
       <Box
@@ -21,8 +33,8 @@ function Login() {
         alignItems: "center",
         gap: 60,
       }}>
-        <TextField id="outlined-basic"  label="Username" variant="standard" />
-        <TextField id="outlined-basic" label="Password" variant="standard" />
+        <TextField id="outlined-basic" value={email} onChange={(e)=> setEmail(e.target.value) }label="Username" variant="standard" />
+        <TextField id="outlined-basic" value ={password} onChange={(e)=> setPassword(e.target.value)} label="Password" variant="standard" />
         </Box>
         <Button
           variant="outlined"
@@ -33,6 +45,7 @@ function Login() {
             color: "#000",
             width:"300px",
           }}
+          onClick={handleLogin}
         >
           Login
         </Button>
