@@ -9,14 +9,34 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import Avatar from '@mui/material/Avatar';
 import AdbIcon from "@mui/icons-material/Adb";
 import Logo from "../logo.png";
 
 const pages = ["home",  "submissions", "services", "accreditation" ];
 
-function NavBar() {
+function NavBar({user,setUser}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [authenticated , setAuthenticated] = React.useState(user);
+
+  React.useEffect(()=>{
+    setAuthenticated(user);
+  },[user])
+  
+  const open = Boolean(anchorEl);
+  const handleOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogOut = () => {
+    localStorage.clear();
+    setUser(null);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -86,7 +106,7 @@ function NavBar() {
           </Box>
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            style={{ justifyContent: "flex-end" }}
+            style={{ justifyContent: "flex-end", alignItems: "center", gap:10 }}
           >
             {pages.map((page) => (
               <Button
@@ -98,6 +118,21 @@ function NavBar() {
                 {page}
               </Button>
             ))}
+            {authenticated ? 
+            <Avatar id="avatar" onClick={handleOpen} sx={{bgcolor: "#000"}} >{`${user.user.firstname.split("")[0]}${user.user.lastname.split("")[0]}`}</Avatar>
+            : <Button href="/">Login</Button>
+}
+            <Menu
+        id="avatar"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+      </Menu>
           </Box>
         </Toolbar>
       </Container>

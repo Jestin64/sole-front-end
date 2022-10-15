@@ -32,7 +32,7 @@ function AccordionTable({ data }) {
       </AccordionSummary>
       <AccordionDetails>
         <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 750 }} aria-label="simple table">
             <TableBody>
               {rows.map((row, index) => (
                 <TableRow
@@ -40,7 +40,7 @@ function AccordionTable({ data }) {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   {row.map((cell) => (
-                    <TableCell width="50%" align="left">{cell}</TableCell>
+                    <TableCell width="40%" align="left">{cell}</TableCell>
                   ))}
                 </TableRow>
               ))}

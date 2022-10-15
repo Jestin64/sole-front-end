@@ -1,18 +1,34 @@
-import React , {useState} from "react";
+import React , {useState,useEffect} from "react";
 import { TextField, Box, Button, Typography } from "@mui/material";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
+
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const user = JSON.parse(localStorage.getItem('profile'))
+
+  useEffect(()=>{
+    if(user){
+      navigate(-1);
+    }
+  },[])
+
+  const handleForgotPassword= () => {
+    axios.post("http://localhost:8080/user/forgot-password",{email : email}).then((res)=>console.log(res));
+  }
 
   const handleLogin = () =>{
     const data = {email : email , password : password};
     axios.post("http://localhost:8080/user/login", data).then((res)=>{
-        localStorage.setItem('profile', JSON.stringify({...res?.data}))
+        localStorage.setItem('profile', JSON.stringify({...res?.data}));
+        navigate("/home");
       }).catch(error=>console.log(error));
   }
+
 
 
   return (
@@ -62,7 +78,7 @@ function Login() {
         >
           Register
         </Button>
-        <Link to="#"><Typography variant="body2">forgot password</Typography></Link>
+        <Button onClick={handleForgotPassword}>forgot password</Button>
         
       </Box>
     </div>

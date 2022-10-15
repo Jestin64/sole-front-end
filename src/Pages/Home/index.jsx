@@ -8,10 +8,10 @@ function Home() {
     {
       title: "Festival Operating Hours",
       rows: [
-        ["December 8", "Preview | By invitation only"],
-        ["December 9", "Doors open to public | Day 1"],
-        ["December 10", "Doors open to public | Day 2"],
-        ["December 11", "Doors open to public | Day 3"],
+        ["December 09", "Preview | By invitation only" , "15:00 – 17:00"],
+        ["December 09", "Doors open to public | Day 1" , "17:00 – 21:30"],
+        ["December 10", "Doors open to public | Day 2" , "12:00 – 22:30"],
+        ["December 11", "Doors open to public | Day 3" , "12:00 – 22:30"],
       ],
     },
     {
@@ -22,26 +22,27 @@ function Home() {
         ["October 17", "Technical submission"],
         ["October 17", "DTCM documentation (Entertainers)"],
         ["October 24", "Permits & licencing application"],
-        ["November 5", "Site services & additionals"],
+        ["November 05", "Site services & additionals"],
         ["November 14", "Site access & staff accreditation"],
       ],
     },
     {
       title: "Build Milestones",
       rows: [
-        ["December 6", "Installation complete ( no later than 0700 hours)"],
-        ["December 7", "Civil Defense (DCD) inspection"],
-        ["October 8", "Final SOLE inspection"],
+        ["December 06", "Installation complete ( no later than 12:00 hours)"],
+        ["December 07", "Civil Defense (DCD) inspection"],
+        ["October 08", "Final SOLE inspection"],
       ],
     },
     {
       title: "Load in/Build",
       rows: [
-        ["November 29", "Anchor, Sponsor & Large Custom (G+1)"],
-        ["December 2", "Sponsor & Large Custom (G)"],
-        ["December 3", "Medium"],
-        ["December 4", "Small"],
-        ["December 9", "F&B, Marketplace & Sneaker Swap"],
+        ["5-day set up", "Anchor"],
+        ["5-day set up", "Sponsor & Large Custom (including F&B) "],
+        ["3-day set up", "Medium"],
+        ["2-day set up", "Small"],
+        ["2-day set up", "F&B"],
+        ["1-day set up", "Marketplace & Sneaker Swap"],
       ],
     },
     {

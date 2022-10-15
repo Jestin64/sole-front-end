@@ -28,7 +28,7 @@ function Registration() {
 
   const handleFileSelect = async(e) =>{
       setSelectedFile([...selectedFile, {name: e.target.name , data : e.target.files[0]}]);
-  }
+  } 
 
   const handleUserUpdate = (e) =>{
     const temp = userDetails;
